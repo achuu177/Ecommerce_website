@@ -4,6 +4,7 @@ const { sellerAuth } = require("../middlewares/sellerAuth.js");
 const { userAuth } = require("../middlewares/userAuth.js");
 
 const {
+  createOrder,
   getOrderDetails,
   getOrders,
   getOrdersByStatus,
@@ -33,6 +34,7 @@ const {
 // Configure router
 const orderRouter = express.Router();
 
+orderRouter.post("/create-orders", userAuth, createOrder);
 // Get all orders
 orderRouter.get("/get-orders", adminAuth, getOrders);
 

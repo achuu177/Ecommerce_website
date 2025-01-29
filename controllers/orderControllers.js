@@ -2,6 +2,42 @@ const { Order } = require("../models/orderModel.js");
 const  Product  = require("../models/productModel.js");
 const { catchErrorHandler } = require("../utils/catchErrorHandler.js");
 
+const createOrder = async (req, res) => {
+  try {
+    const { products, totalPrice, shippingAddress } = req.body;
+    const userId = req.user.id; 
+
+    // Validate required fields
+    if (!products || !totalPrice || !shippingAddress) {
+      return res.status(400).json({ 
+        message: "Please provide all required fields (products, totalPrice, shippingAddress)" 
+      });
+    }
+
+    // Create new order
+    const newOrder = await Order.create({
+      userId,
+      products,
+      totalPrice,
+      shippingAddress,
+      orderStatus: "processing", // matching your enum values
+      paymentStatus: "pending",
+      returnStatus: "eligible",
+      returnApprovalStatus: "pending"
+    });
+
+    res.status(201).json({
+      message: "Order created successfully!",
+      data: newOrder
+    });
+
+  } catch (error) {
+    catchErrorHandler(res, error);
+  }
+};
+
+
+
 // Get all orders
 const getOrders = async (req, res) => {
   try {
@@ -1064,6 +1100,7 @@ const searchSellerOrders = async (req, res) => {
 // };
 
 module.exports = {
+  createOrder,
   getOrders,
   getOrdersByStatus,
   getOrderDetails,
