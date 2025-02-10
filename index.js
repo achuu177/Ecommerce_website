@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const mongoose = require('mongoose');
 const { apiRouter } = require("./routes/index.js"); // Ensure this is exported correctly in your routes file
 const cookieParser = require("cookie-parser");
@@ -9,6 +10,13 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(
+  cors({
+      origin: "http://localhost:5173",
+      methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
+      credentials: true,
+  })
+);
 app.use(cookieParser())
 const port = 3000;
  // Use environment variable or fallback to 3000

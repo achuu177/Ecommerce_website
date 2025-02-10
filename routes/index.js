@@ -8,6 +8,7 @@ const { wishlistRouter } = require("./wishlistRoutes.js");
 const { cartRouter } = require("./cartRoutes.js");
 const { orderRouter } = require("./orderRoutes.js");
 const { reviewRouter } = require("./reviewRoutes.js");
+const { bannerRouter } = require("./bannerRoutes.js");
 // const { productRouter} = require("./productRoutes.js");
 // const { cartRouter} = require("./cartRoutes.js");
 // const { wishlistRouter} = require("./wishlistRoutes.js");
@@ -20,7 +21,7 @@ const { reviewRouter } = require("./reviewRoutes.js");
 
 const router = express.Router();
 
-router.use('/users', userRouter);
+router.use('/user', userRouter);
 router.use('/seller', sellerRouter);
 router.use('/admin', adminRouter);
 router.use('/product', productRouter);
@@ -28,6 +29,7 @@ router.use('/wishlist', wishlistRouter);
 router.use('/cart', cartRouter);
 router.use('/order', orderRouter);
 router.use('/review', reviewRouter);
+router.use("/banner", bannerRouter);
 // router.use("/products", productRouter);
 // router.use("/cart", cartRouter); 
 // router.use("/wishlist", wishlistRouter);
