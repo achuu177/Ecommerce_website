@@ -11,7 +11,7 @@ const bannerSchema = new Schema(
 
     color: {
       type: String,
-      enum: ["black", "yellow"],
+      enum: ["black", "blue"],
       required: true,
       maxLength: 10,
     },

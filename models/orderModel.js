@@ -8,10 +8,10 @@ const orderSchema = new Schema(
       ref: "User",
       required: true,
     },
-    //sessionId: {
-    //  type: String,
-     // required: true,
-   // },
+    sessionId: {
+      type: String,
+      required: true,
+    },
     products: [
       {
         productId: {
@@ -29,10 +29,7 @@ const orderSchema = new Schema(
       type: Number,
       required: true,
     },
-    shippingAddress: {
-      type: String,
-      required: true
-    },
+    
     paymentStatus: {
       type: String,
       enum: ["pending", "completed", "cancelled"],

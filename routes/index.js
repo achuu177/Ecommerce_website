@@ -9,6 +9,7 @@ const { cartRouter } = require("./cartRoutes.js");
 const { orderRouter } = require("./orderRoutes.js");
 const { reviewRouter } = require("./reviewRoutes.js");
 const { bannerRouter } = require("./bannerRoutes.js");
+const { paymentRouter } = require("./paymentRoutes.js");
 // const { productRouter} = require("./productRoutes.js");
 // const { cartRouter} = require("./cartRoutes.js");
 // const { wishlistRouter} = require("./wishlistRoutes.js");
@@ -30,6 +31,7 @@ router.use('/cart', cartRouter);
 router.use('/order', orderRouter);
 router.use('/review', reviewRouter);
 router.use("/banner", bannerRouter);
+router.use('/payment', paymentRouter)
 // router.use("/products", productRouter);
 // router.use("/cart", cartRouter); 
 // router.use("/wishlist", wishlistRouter);

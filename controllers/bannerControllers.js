@@ -86,13 +86,13 @@ exports.getBlackBanner = async (req, res) => {
 // Get yellow banner
 exports.getYellowBanner = async (req, res) => {
   try {
-    const yellowBanners = await Banner.find({ color: "yellow" });
+    const yellowBanners = await Banner.find({ color: "blue" });
 
     if (!yellowBanners.length) {
-      return res.status(404).json({ message: "No yellow banner found" });
+      return res.status(404).json({ message: "No blue banner found" });
     }
 
-    res.status(200).json({ message: "Yellow banners rendered successfully", data: yellowBanners });
+    res.status(200).json({ message: "Blue banners rendered successfully", data: yellowBanners });
   } catch (error) {
     catchErrorHandler(res, error);
   }

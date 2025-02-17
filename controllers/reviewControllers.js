@@ -33,11 +33,11 @@ const addReview = async (req, res) => {
     });
 
     // Handle user has not purchased product
-    //if (!order) {
-     // return res
-        //.status(400)
-       // .json({ message: "You must purchase the product to add your review!" });
-   // }
+    if (!order) {
+      return res
+        .status(400)
+        .json({ message: "You must purchase the product to add your review!" });
+    }
 
     // Check if the user has already reviewed this product
     const existingReview = await Review.findOne({

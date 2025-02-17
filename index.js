@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-      origin: ["http://localhost:5173", "https://ecommerce-frontend-henna-beta.vercel.app"],
+      origin: "http://localhost:5173", 
       methods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
       credentials: true,
   })
