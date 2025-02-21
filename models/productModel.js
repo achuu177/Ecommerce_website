@@ -28,7 +28,7 @@ const productSchema = new Schema(
     },
     category: {
       type: String,
-      enum: ["electronics", "clothing", "footwear", "home&kitchen", "beauty"],
+      enum: ["electronics", "clothing", "footwea", "home&kitchen", "beauty"],
       lowercase: true,
       required: true,
     },
